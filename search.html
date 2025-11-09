@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OtakuBoxd - Search</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="assets/mobile-fix.css">
+    <link rel="stylesheet" href="assets/explore.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <i class="fas fa-play-circle"></i>
+                <span>OtakuBoxd</span>
+            </a>
+            
+            <!-- Global Search Bar -->
+            <div class="nav-search">
+                <div class="content-toggle">
+                    <button class="toggle-btn active" data-type="anime">
+                        <i class="fas fa-play"></i> Anime
+                    </button>
+                    <button class="toggle-btn" data-type="manga">
+                        <i class="fas fa-book"></i> Manga
+                    </button>
+                </div>
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="global-search" placeholder="Search anime..." class="search-input">
+                    <div class="search-suggestions" id="search-suggestions"></div>
+                </div>
+            </div>
+            
+            <div class="nav-actions">
+                <a href="search.html" class="nav-btn">
+                    <i class="fas fa-compass"></i>
+                    <span>Explore</span>
+                </a>
+                <a href="gallery.html" class="nav-btn">
+                    <i class="fas fa-images"></i>
+                    <span>Gallery</span>
+                </a>
+                <a href="mylist.html" class="nav-btn">
+                    <i class="fas fa-heart"></i>
+                    <span>My List</span>
+                </a>
+                <a href="stats.html" class="nav-btn">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Stats</span>
+                </a>
+                <a href="map.html" class="nav-btn">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <span>Map</span>
+                </a>
+
+            </div>
+            
+            <ul class="nav-menu mobile-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="search.html" class="nav-link active">Explore</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="mylist.html" class="nav-link">My List</a></li>
+                <li><a href="stats.html" class="nav-link">Stats</a></li>
+                <li><a href="map.html" class="nav-link">Map</a></li>
+            </ul>
+            
+            <div class="mobile-menu-toggle" id="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <!-- Anime Sections -->
+        <section class="anime-section content-section" data-type="anime">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-fire"></i>
+                    Top Anime
+                </h2>
+            </div>
+            <div class="anime-grid" id="top-anime-grid">
+                <!-- Top anime will be populated here -->
+            </div>
+        </section>
+
+        <section class="anime-section content-section" data-type="anime">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-star"></i>
+                    Most Popular
+                </h2>
+            </div>
+            <div class="anime-grid" id="popular-anime-grid">
+                <!-- Popular anime will be populated here -->
+            </div>
+        </section>
+
+        <section class="anime-section content-section" data-type="anime">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-broadcast-tower"></i>
+                    Currently Airing
+                </h2>
+            </div>
+            <div class="anime-grid" id="airing-anime-grid">
+                <!-- Airing anime will be populated here -->
+            </div>
+        </section>
+
+        <!-- Manga Sections -->
+        <section class="anime-section content-section" data-type="manga" style="display: none;">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-fire"></i>
+                    Top Manga
+                </h2>
+            </div>
+            <div class="anime-grid" id="top-manga-grid">
+                <!-- Top manga will be populated here -->
+            </div>
+        </section>
+
+        <section class="anime-section content-section" data-type="manga" style="display: none;">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-star"></i>
+                    Most Popular
+                </h2>
+            </div>
+            <div class="anime-grid" id="popular-manga-grid">
+                <!-- Popular manga will be populated here -->
+            </div>
+        </section>
+
+        <section class="anime-section content-section" data-type="manga" style="display: none;">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-book-open"></i>
+                    Currently Publishing
+                </h2>
+            </div>
+            <div class="anime-grid" id="publishing-manga-grid">
+                <!-- Publishing manga will be populated here -->
+            </div>
+        </section>
+
+        <!-- Search Results Section (hidden by default) -->
+        <section class="anime-section" id="search-results-section" style="display: none;">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-search"></i>
+                    Search Results
+                </h2>
+            </div>
+            <div class="anime-grid" id="search-results">
+                <!-- Search results will appear here -->
+            </div>
+        </section>
+    </main>
+
+    <script src="js/navigation.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/mobile.js"></script>
+    <script src="js/explore.js"></script>
+</body>
+</html>

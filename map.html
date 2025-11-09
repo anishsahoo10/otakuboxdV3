@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OtakuBoxd - Anime Locations</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="assets/mobile-fix.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <i class="fas fa-play-circle"></i>
+                <span>OtakuBoxd</span>
+            </a>
+            
+            <!-- Global Search Bar -->
+            <div class="nav-search">
+                <div class="content-toggle">
+                    <button class="toggle-btn active" data-type="anime">
+                        <i class="fas fa-play"></i> Anime
+                    </button>
+                    <button class="toggle-btn" data-type="manga">
+                        <i class="fas fa-book"></i> Manga
+                    </button>
+                </div>
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="global-search" placeholder="Search anime..." class="search-input">
+                    <div class="search-suggestions" id="search-suggestions"></div>
+                </div>
+            </div>
+            
+            <div class="nav-actions">
+                <a href="search.html" class="nav-btn">
+                    <i class="fas fa-compass"></i>
+                    <span>Explore</span>
+                </a>
+                <a href="gallery.html" class="nav-btn">
+                    <i class="fas fa-images"></i>
+                    <span>Gallery</span>
+                </a>
+                <a href="mylist.html" class="nav-btn">
+                    <i class="fas fa-heart"></i>
+                    <span>My List</span>
+                </a>
+                <a href="stats.html" class="nav-btn">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Stats</span>
+                </a>
+                <a href="map.html" class="nav-btn">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <span>Map</span>
+                </a>
+
+            </div>
+            
+            <ul class="nav-menu mobile-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="search.html" class="nav-link">Explore</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="mylist.html" class="nav-link">My List</a></li>
+                <li><a href="stats.html" class="nav-link">Stats</a></li>
+                <li><a href="map.html" class="nav-link active">Map</a></li>
+            </ul>
+            
+            <div class="mobile-menu-toggle" id="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="map-container">
+            <div class="floating-elements">
+                <div class="float-element">🗾</div>
+                <div class="float-element">⛩️</div>
+                <div class="float-element">🏯</div>
+                <div class="float-element">🌸</div>
+                <div class="float-element">🗼</div>
+            </div>
+            
+            <div class="map-header">
+                <h1><i class="fas fa-map-marked-alt"></i> Real-World Anime Locations</h1>
+                <p>Discover iconic places from your favorite anime series</p>
+            </div>
+
+            <div class="map-content">
+                <div class="locations-sidebar">
+                    <div class="sidebar-header">
+                        <h2><i class="fas fa-map-pin"></i> Explore Locations</h2>
+                    </div>
+                    
+                    <div class="location-filters">
+                        <button class="filter-btn active" data-city="all">🌏 All Locations</button>
+                        <button class="filter-btn" data-city="tokyo">🗼 Tokyo</button>
+                        <button class="filter-btn" data-city="kyoto">⛩️ Kyoto</button>
+                        <button class="filter-btn" data-city="other">🏯 Other Cities</button>
+                    </div>
+                    
+                    <div class="locations-list" id="locations-list">
+                        <!-- Locations will be populated here -->
+                    </div>
+                </div>
+
+                <div class="map-display">
+                    <iframe 
+                        id="google-map"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12965.766!2d139.7670!3d35.6762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188bfbd89f700b%3A0x277c49ba34ed38!2sAkihabara%2C%20Tokyo%2C%20Japan!5e0!3m2!1sen!2sus!4v1234567890"
+                        frameborder="0" 
+                        allowfullscreen="" 
+                        aria-hidden="false" 
+                        tabindex="0">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/navigation.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/mobile.js"></script>
+</body>
+</html>

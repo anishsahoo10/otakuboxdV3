@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OtakuBoxd - Discover Anime</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+    <link rel="stylesheet" href="assets/mobile-fix.css" />
+    <link rel="stylesheet" href="assets/popup.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body class="homepage">
+    <!-- Animated Background -->
+    <div class="bg-animation">
+      <div class="sakura"></div>
+      <div class="sakura"></div>
+      <div class="sakura"></div>
+      <div class="sakura"></div>
+      <div class="sakura"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+          <i class="fas fa-play-circle"></i>
+          <span>OtakuBoxd</span>
+        </a>
+
+        <!-- Global Search Bar -->
+        <div class="nav-search">
+          <div class="content-toggle">
+            <button class="toggle-btn active" data-type="anime">
+              <i class="fas fa-play"></i> Anime
+            </button>
+            <button class="toggle-btn" data-type="manga">
+              <i class="fas fa-book"></i> Manga
+            </button>
+          </div>
+          <div class="search-container">
+            <i class="fas fa-search search-icon"></i>
+            <input
+              type="text"
+              id="global-search"
+              placeholder="Search anime..."
+              class="search-input"
+            />
+            <div class="search-suggestions" id="search-suggestions"></div>
+          </div>
+        </div>
+
+        <div class="nav-actions">
+          <a href="search.html" class="nav-btn">
+            <i class="fas fa-compass"></i>
+            <span>Explore</span>
+          </a>
+          <a href="gallery.html" class="nav-btn">
+            <i class="fas fa-images"></i>
+            <span>Gallery</span>
+          </a>
+          <a href="mylist.html" class="nav-btn">
+            <i class="fas fa-heart"></i>
+            <span>My List</span>
+          </a>
+
+          <a href="stats.html" class="nav-btn">
+            <i class="fas fa-chart-bar"></i>
+            <span>Stats</span>
+          </a>
+          <a href="map.html" class="nav-btn">
+            <i class="fas fa-map-marked-alt"></i>
+            <span>Map</span>
+          </a>
+        </div>
+
+        <ul class="nav-menu mobile-menu">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="search.html" class="nav-link">Explore</a></li>
+          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li><a href="mylist.html" class="nav-link">My List</a></li>
+          <li><a href="games.html" class="nav-link">Games</a></li>
+          <li><a href="stats.html" class="nav-link">Stats</a></li>
+          <li><a href="map.html" class="nav-link">Map</a></li>
+        </ul>
+
+        <div class="mobile-menu-toggle" id="mobile-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="hero-container">
+          <div class="hero-content">
+            <div class="hero-badge">
+              <i class="fas fa-star"></i>
+              <span>Your Anime Journey Starts Here</span>
+            </div>
+            <h1 class="hero-title">Discover & Track Your Favorite Anime</h1>
+            <p class="hero-description">
+              Join thousands of anime fans in tracking, rating, and discovering
+              amazing series. Build your personal anime collection today.
+            </p>
+            <div class="hero-actions">
+              <button
+                class="btn-primary"
+                onclick="window.location.href='search.html'"
+              >
+                <i class="fas fa-search"></i>
+                Start Exploring
+              </button>
+              <button class="btn-secondary" onclick="showRandomAnime()">
+                <i class="fas fa-shuffle"></i>
+                Random Anime
+              </button>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="floating-image-container">
+              <div class="floating-image" onclick="navigateToFeatured()">
+                <img src="de_sl.jpg" alt="Featured Anime" id="featured-img" />
+                <div class="image-glow"></div>
+              </div>
+              <div class="floating-particles">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Trending Section -->
+      <section
+        class="anime-section trending-section content-section"
+        data-type="anime"
+      >
+        <div class="section-header">
+          <h2 class="section-title">
+            <i class="fas fa-fire trending-icon"></i>
+            Trending Now
+          </h2>
+        </div>
+        <div class="trending-container" id="trending-container">
+          <!-- Trending anime will be populated here -->
+        </div>
+      </section>
+
+      <!-- Popular Anime Section -->
+      <section class="anime-section content-section" data-type="anime">
+        <div class="section-header">
+          <h2 class="section-title">
+            <i class="fas fa-star"></i>
+            Popular Anime
+          </h2>
+        </div>
+        <div class="anime-grid" id="popular-grid">
+          <!-- Popular anime will be populated here -->
+        </div>
+      </section>
+
+      <!-- Airing Anime Section -->
+      <section class="anime-section content-section" data-type="anime">
+        <div class="section-header">
+          <h2 class="section-title">
+            <i class="fas fa-broadcast-tower"></i>
+            Currently Airing
+          </h2>
+        </div>
+        <div class="anime-grid" id="airing-grid">
+          <!-- Airing anime will be populated here -->
+        </div>
+      </section>
+
+      <!-- Top Manga Section -->
+      <section
+        class="anime-section content-section"
+        data-type="manga"
+        style="display: none"
+      >
+        <div class="section-header">
+          <h2 class="section-title">
+            <i class="fas fa-fire trending-icon"></i>
+            Top Manga
+          </h2>
+        </div>
+        <div class="trending-container" id="top-manga-container">
+          <!-- Top manga will be populated here -->
+        </div>
+      </section>
+
+      <!-- Popular Manga Section -->
+      <section
+        class="anime-section content-section"
+        data-type="manga"
+        style="display: none"
+      >
+        <div class="section-header">
+          <h2 class="section-title">
+            <i class="fas fa-star"></i>
+            Popular Manga
+          </h2>
+        </div>
+        <div class="anime-grid" id="popular-manga-grid">
+          <!-- Popular manga will be populated here -->
+        </div>
+      </section>
+
+      <!-- Publishing Manga Section -->
+      <section
+        class="anime-section content-section"
+        data-type="manga"
+        style="display: none"
+      >
+        <div class="section-header">
+          <h2 class="section-title">
+            <i class="fas fa-book-open"></i>
+            Currently Publishing
+          </h2>
+        </div>
+        <div class="anime-grid" id="publishing-manga-grid">
+          <!-- Publishing manga will be populated here -->
+        </div>
+      </section>
+    </main>
+
+    <!-- Creative Games Popup -->
+    <div class="games-popup" id="games-popup">
+      <div class="popup-content">
+        <i class="fas fa-gamepad"></i>
+        <span>games</span>
+      </div>
+    </div>
+
+    <script src="js/navigation.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/mobile.js"></script>
+    <script>
+      // Games popup
+      setTimeout(() => {
+        document.getElementById("games-popup").style.display = "block";
+      }, 3000);
+
+      document.getElementById("games-popup").onclick = function () {
+        window.location.href = "games.html";
+      };
+    </script>
+  </body>
+</html>

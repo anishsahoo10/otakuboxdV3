@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OtakuBoxd - Games</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="assets/mobile-fix.css">
+    <link rel="stylesheet" href="assets/games.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <i class="fas fa-play-circle"></i>
+                <span>OtakuBoxd</span>
+            </a>
+            
+            <div class="nav-search">
+                <div class="content-toggle">
+                    <button class="toggle-btn active" data-type="anime">
+                        <i class="fas fa-play"></i> Anime
+                    </button>
+                    <button class="toggle-btn" data-type="manga">
+                        <i class="fas fa-book"></i> Manga
+                    </button>
+                </div>
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="global-search" placeholder="Search anime..." class="search-input">
+                    <div class="search-suggestions" id="search-suggestions"></div>
+                </div>
+            </div>
+            
+            <div class="nav-actions">
+                <a href="search.html" class="nav-btn">
+                    <i class="fas fa-compass"></i>
+                    <span>Explore</span>
+                </a>
+                <a href="gallery.html" class="nav-btn">
+                    <i class="fas fa-images"></i>
+                    <span>Gallery</span>
+                </a>
+                <a href="mylist.html" class="nav-btn">
+                    <i class="fas fa-heart"></i>
+                    <span>My List</span>
+                </a>
+                <a href="games.html" class="nav-btn">
+                    <i class="fas fa-gamepad"></i>
+                    <span>Games</span>
+                </a>
+                <a href="stats.html" class="nav-btn">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Stats</span>
+                </a>
+            </div>
+            
+            <ul class="nav-menu mobile-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="search.html" class="nav-link">Explore</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="mylist.html" class="nav-link">My List</a></li>
+                <li><a href="games.html" class="nav-link active">Games</a></li>
+                <li><a href="stats.html" class="nav-link">Stats</a></li>
+            </ul>
+            
+            <div class="mobile-menu-toggle" id="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="games-header">
+            <h1><i class="fas fa-gamepad"></i> Anime Games</h1>
+            <p>Test your anime knowledge with fun interactive games!</p>
+        </section>
+
+        <section class="games-grid">
+            <div class="game-card" id="quote-game">
+                <div class="game-icon">
+                    <i class="fas fa-quote-left"></i>
+                </div>
+                <h3>Finish the Quote</h3>
+                <p>Guess the character who said these famous anime quotes!</p>
+                <button class="play-btn">
+                    <i class="fas fa-play"></i> Play Now
+                </button>
+            </div>
+
+            <div class="game-card" id="memory-game">
+                <div class="game-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>Anime Memory Match</h3>
+                <p>Flip cards and match anime character pairs!</p>
+                <button class="play-btn">
+                    <i class="fas fa-play"></i> Play Now
+                </button>
+            </div>
+        </section>
+
+        <!-- Quote Game Modal -->
+        <div class="game-modal" id="quote-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2><i class="fas fa-quote-left"></i> Finish the Quote</h2>
+                    <button class="close-btn">&times;</button>
+                </div>
+                <div class="game-content">
+                    <div class="score-board">
+                        <span>Score: <span id="quote-score">0</span></span>
+                        <span>Round: <span id="quote-round">1</span>/10</span>
+                    </div>
+                    <div class="quote-container">
+                        <p class="quote-text" id="quote-text">Loading quote...</p>
+                        <div class="quote-options" id="quote-options">
+                            <!-- Options will be populated here -->
+                        </div>
+                    </div>
+                    <button class="next-btn" id="next-quote" style="display: none;">Next Quote</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Memory Game Modal -->
+        <div class="game-modal" id="memory-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2><i class="fas fa-brain"></i> Memory Match</h2>
+                    <button class="close-btn">&times;</button>
+                </div>
+                <div class="game-content">
+                    <div class="score-board">
+                        <span>Moves: <span id="memory-moves">0</span></span>
+                        <span>Matches: <span id="memory-matches">0</span>/8</span>
+                    </div>
+                    <div class="memory-grid" id="memory-grid">
+                        <!-- Memory cards will be populated here -->
+                    </div>
+                    <button class="restart-btn" id="restart-memory">New Game</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/navigation.js"></script>
+    <script src="js/mobile.js"></script>
+    <script src="js/games.js"></script>
+</body>
+</html>

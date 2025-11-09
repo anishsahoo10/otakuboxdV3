@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile UI Test - OtakuBoxd</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+    <link rel="stylesheet" href="css/mobile-responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .test-info {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.8rem;
+            z-index: 9999;
+            font-weight: 600;
+        }
+        
+        .test-section {
+            padding: 2rem 1rem;
+            margin: 1rem 0;
+            background: var(--bg-card);
+            border-radius: 1rem;
+            border: 1px solid var(--border);
+        }
+        
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .test-card {
+            background: var(--bg-secondary);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+        
+        .breakpoint-indicator {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            background: var(--secondary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.8rem;
+            z-index: 9999;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .breakpoint-indicator::after {
+                content: " - Mobile";
+            }
+        }
+        
+        @media (min-width: 769px) and (max-width: 992px) {
+            .breakpoint-indicator::after {
+                content: " - Tablet";
+            }
+        }
+        
+        @media (min-width: 993px) {
+            .breakpoint-indicator::after {
+                content: " - Desktop";
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="test-info">
+        Mobile UI Test
+    </div>
+    
+    <div class="breakpoint-indicator">
+        Current: <span id="screen-size"></span>
+    </div>
+
+    <!-- Test Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <i class="fas fa-play-circle"></i>
+                <span>OtakuBoxd</span>
+            </a>
+            
+            <div class="nav-search">
+                <div class="content-toggle">
+                    <button class="toggle-btn active" data-type="anime">
+                        <i class="fas fa-play"></i> Anime
+                    </button>
+                    <button class="toggle-btn" data-type="manga">
+                        <i class="fas fa-book"></i> Manga
+                    </button>
+                </div>
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" placeholder="Search anime..." class="search-input">
+                </div>
+            </div>
+            
+            <div class="nav-actions">
+                <a href="#" class="nav-btn">
+                    <i class="fas fa-compass"></i>
+                    <span>Explore</span>
+                </a>
+                <a href="#" class="nav-btn">
+                    <i class="fas fa-images"></i>
+                    <span>Gallery</span>
+                </a>
+                <a href="#" class="nav-btn">
+                    <i class="fas fa-heart"></i>
+                    <span>My List</span>
+                </a>
+            </div>
+            
+            <ul class="nav-menu mobile-menu">
+                <li><a href="#" class="nav-link active">Home</a></li>
+                <li><a href="#" class="nav-link">Explore</a></li>
+                <li><a href="#" class="nav-link">Gallery</a></li>
+                <li><a href="#" class="nav-link">My List</a></li>
+                <li><a href="#" class="nav-link">Stats</a></li>
+                <li><a href="#" class="nav-link">Map</a></li>
+            </ul>
+            
+            <div class="mobile-menu-toggle" id="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <!-- Test Hero Section -->
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-star"></i>
+                        <span>Mobile UI Test</span>
+                    </div>
+                    <h1 class="hero-title">Responsive Design Test</h1>
+                    <p class="hero-description">Testing mobile responsiveness across different screen sizes and devices.</p>
+                    <div class="hero-actions">
+                        <button class="btn-primary">
+                            <i class="fas fa-mobile-alt"></i>
+                            Test Mobile
+                        </button>
+                        <button class="btn-secondary">
+                            <i class="fas fa-desktop"></i>
+                            Test Desktop
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="floating-image-container">
+                        <div class="floating-image">
+                            <img src="../de_sl.jpg" alt="Test Image">
+                            <div class="image-glow"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Test Sections -->
+        <div class="test-section">
+            <h2>Responsive Grid Test</h2>
+            <p>This grid should show 2 columns on mobile, 3 on tablet, and 4+ on desktop.</p>
+            <div class="test-grid">
+                <div class="test-card">Card 1</div>
+                <div class="test-card">Card 2</div>
+                <div class="test-card">Card 3</div>
+                <div class="test-card">Card 4</div>
+                <div class="test-card">Card 5</div>
+                <div class="test-card">Card 6</div>
+            </div>
+        </div>
+
+        <!-- Test Trending Section -->
+        <section class="anime-section trending-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-fire trending-icon"></i>
+                    Trending Test
+                </h2>
+            </div>
+            <div class="trending-container">
+                <div class="trending-card">
+                    <img src="../de_sl.jpg" alt="Test" class="trending-poster">
+                    <div class="trending-info">
+                        <h3 class="trending-title">Test Anime 1</h3>
+                        <div class="trending-rating">
+                            <i class="fas fa-star"></i>
+                            <span>8.5</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="trending-card">
+                    <img src="../wal_sam.jpg" alt="Test" class="trending-poster">
+                    <div class="trending-info">
+                        <h3 class="trending-title">Test Anime 2</h3>
+                        <div class="trending-rating">
+                            <i class="fas fa-star"></i>
+                            <span>9.2</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="trending-card">
+                    <img src="../de_sl.jpg" alt="Test" class="trending-poster">
+                    <div class="trending-info">
+                        <h3 class="trending-title">Test Anime 3</h3>
+                        <div class="trending-rating">
+                            <i class="fas fa-star"></i>
+                            <span>7.8</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Test Anime Grid -->
+        <section class="anime-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-star"></i>
+                    Grid Test
+                </h2>
+            </div>
+            <div class="anime-grid">
+                <div class="anime-card">
+                    <img src="../de_sl.jpg" alt="Test" class="anime-poster">
+                    <div class="anime-info">
+                        <h3 class="anime-title">Test Anime Title</h3>
+                        <div class="anime-meta">
+                            <span class="anime-score">★ 8.5</span>
+                            <span>2023</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="anime-card">
+                    <img src="../wal_sam.jpg" alt="Test" class="anime-poster">
+                    <div class="anime-info">
+                        <h3 class="anime-title">Another Test Anime</h3>
+                        <div class="anime-meta">
+                            <span class="anime-score">★ 9.2</span>
+                            <span>2023</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="anime-card">
+                    <img src="../de_sl.jpg" alt="Test" class="anime-poster">
+                    <div class="anime-info">
+                        <h3 class="anime-title">Third Test Anime</h3>
+                        <div class="anime-meta">
+                            <span class="anime-score">★ 7.8</span>
+                            <span>2023</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="anime-card">
+                    <img src="../wal_sam.jpg" alt="Test" class="anime-poster">
+                    <div class="anime-info">
+                        <h3 class="anime-title">Fourth Test Anime</h3>
+                        <div class="anime-meta">
+                            <span class="anime-score">★ 8.9</span>
+                            <span>2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/mobile-enhancements.js"></script>
+    <script>
+        // Update screen size indicator
+        function updateScreenSize() {
+            const screenSize = document.getElementById('screen-size');
+            if (screenSize) {
+                screenSize.textContent = `${window.innerWidth}x${window.innerHeight}`;
+            }
+        }
+        
+        updateScreenSize();
+        window.addEventListener('resize', updateScreenSize);
+        
+        // Test mobile features
+        console.log('Mobile UI Test loaded');
+        console.log('Screen size:', window.innerWidth + 'x' + window.innerHeight);
+        console.log('User agent:', navigator.userAgent);
+        console.log('Touch support:', 'ontouchstart' in window);
+    </script>
+</body>
+</html>

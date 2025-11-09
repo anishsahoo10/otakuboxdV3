@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OtakuBoxd - Details</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="assets/mobile-fix.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <i class="fas fa-play-circle"></i>
+                <span>OtakuBoxd</span>
+            </a>
+            
+            <!-- Global Search Bar -->
+            <div class="nav-search">
+                <div class="content-toggle">
+                    <button class="toggle-btn active" data-type="anime">
+                        <i class="fas fa-play"></i> Anime
+                    </button>
+                    <button class="toggle-btn" data-type="manga">
+                        <i class="fas fa-book"></i> Manga
+                    </button>
+                </div>
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="global-search" placeholder="Search anime..." class="search-input">
+                    <div class="search-suggestions" id="search-suggestions"></div>
+                </div>
+            </div>
+            
+            <div class="nav-actions">
+                <a href="search.html" class="nav-btn">
+                    <i class="fas fa-compass"></i>
+                    <span>Explore</span>
+                </a>
+                <a href="gallery.html" class="nav-btn">
+                    <i class="fas fa-images"></i>
+                    <span>Gallery</span>
+                </a>
+                <a href="mylist.html" class="nav-btn">
+                    <i class="fas fa-heart"></i>
+                    <span>My List</span>
+                </a>
+                <a href="stats.html" class="nav-btn">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Stats</span>
+                </a>
+                <a href="map.html" class="nav-btn">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <span>Map</span>
+                </a>
+
+            </div>
+            
+            <ul class="nav-menu mobile-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="search.html" class="nav-link">Explore</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="mylist.html" class="nav-link">My List</a></li>
+                <li><a href="stats.html" class="nav-link">Stats</a></li>
+                <li><a href="map.html" class="nav-link">Map</a></li>
+            </ul>
+            
+            <div class="mobile-menu-toggle" id="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="anime-details" id="anime-details">
+            <!-- Anime details will be populated here -->
+            <div class="details-container">
+                <img src="https://via.placeholder.com/300x400" alt="Anime Poster" class="details-poster">
+                <div class="details-info">
+                    <h1 class="details-title">Loading...</h1>
+                    <div class="details-meta">
+                        <span class="details-score">★ -</span>
+                        <span class="details-episodes">- eps</span>
+                        <span class="details-status">-</span>
+                    </div>
+                    <p class="details-synopsis">Loading synopsis...</p>
+                    <button class="add-to-list-btn" id="add-to-list">Add to My List</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/navigation.js"></script>
+    <script src="js/details.js"></script>
+    <script src="js/mobile.js"></script>
+</body>
+</html>

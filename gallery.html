@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OtakuBoxd - Anime Gallery</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="assets/mobile-fix.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <i class="fas fa-play-circle"></i>
+                <span>OtakuBoxd</span>
+            </a>
+            
+            <div class="nav-actions">
+                <a href="search.html" class="nav-btn">
+                    <i class="fas fa-compass"></i>
+                    <span>Explore</span>
+                </a>
+                <a href="gallery.html" class="nav-btn active">
+                    <i class="fas fa-images"></i>
+                    <span>Gallery</span>
+                </a>
+                <a href="mylist.html" class="nav-btn">
+                    <i class="fas fa-heart"></i>
+                    <span>My List</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="gallery-container">
+            <div class="gallery-header">
+                <h1><i class="fas fa-images"></i> Anime Gallery</h1>
+                <p>Discover amazing anime characters, artwork, and manga covers</p>
+            </div>
+
+            <div class="gallery-controls">
+                <div class="category-tabs">
+                    <button class="tab-btn active" data-category="characters">
+                        <i class="fas fa-users"></i> Characters
+                    </button>
+                    <button class="tab-btn" data-category="neko">
+                        <i class="fas fa-cat"></i> Nekos
+                    </button>
+                    <button class="tab-btn" data-category="husbando">
+                        <i class="fas fa-male"></i> Husbandos
+                    </button>
+                </div>
+                
+                <button class="refresh-btn" id="refresh-gallery">
+                    <i class="fas fa-sync-alt"></i> New Images
+                </button>
+            </div>
+
+            <div class="gallery-grid" id="gallery-grid">
+                <!-- Images will be populated here -->
+            </div>
+
+            <div class="load-more-container" id="load-more-container" style="display: none;">
+                <div class="loading-indicator">
+                    <i class="fas fa-spinner fa-spin"></i> Loading more images...
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Image Modal -->
+    <div class="image-modal" id="image-modal">
+        <div class="modal-backdrop" onclick="closeModal()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <img id="modal-image" src="" alt="Anime artwork">
+            <div class="modal-actions">
+                <button class="modal-btn" onclick="downloadImage()">
+                    <i class="fas fa-download"></i> Download
+                </button>
+                <button class="modal-btn" onclick="shareImage()">
+                    <i class="fas fa-share"></i> Share
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/navigation.js"></script>
+    <script src="js/gallery.js"></script>
+    <script src="js/mobile.js"></script>
+</body>
+</html>

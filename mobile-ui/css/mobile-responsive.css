@@ -1,0 +1,1146 @@
+/* Mobile-First Responsive Design for OtakuBoxd */
+
+/* Enhanced Mobile Navigation */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem 0;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-container {
+    padding: 0 1rem;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-size: 1.4rem;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(99, 102, 241, 0.1);
+    border-radius: 2rem;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+  }
+
+  .nav-logo:hover {
+    background: rgba(99, 102, 241, 0.2);
+    transform: scale(1.02);
+  }
+
+  .nav-logo i {
+    font-size: 1.6rem;
+  }
+
+  .nav-search {
+    display: none;
+  }
+
+  .nav-actions {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+    z-index: 1001;
+    padding: 0.75rem;
+    background: rgba(99, 102, 241, 0.1);
+    border-radius: 0.75rem;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .mobile-menu-toggle:hover {
+    background: rgba(99, 102, 241, 0.2);
+    transform: scale(1.05);
+  }
+
+  .mobile-menu-toggle span {
+    width: 22px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+
+  .mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.98) 0%, rgba(30, 41, 59, 0.98) 100%);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    z-index: 1000;
+    transform: translateX(-100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 2rem;
+  }
+
+  .mobile-menu.active {
+    transform: translateX(0);
+  }
+
+  .mobile-menu::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+  }
+
+  .nav-link {
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding: 1.2rem 2rem;
+    border-radius: 2rem;
+    text-align: center;
+    width: 100%;
+    max-width: 280px;
+    background: rgba(30, 41, 59, 0.8);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .nav-link:hover::before {
+    left: 100%;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(99, 102, 241, 0.4);
+    border-color: var(--primary);
+  }
+
+  .nav-link:active {
+    transform: translateY(-2px) scale(0.98);
+  }
+
+  /* Mobile Search Bar */
+  .mobile-search {
+    display: block;
+    padding: 1rem;
+    background: rgba(30, 41, 59, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+    position: sticky;
+    top: 80px;
+    z-index: 999;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .mobile-search-container {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .mobile-search-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: 2rem;
+    color: var(--text-primary);
+    font-size: 1rem;
+  }
+
+  .mobile-search-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  }
+
+  .mobile-search-btn {
+    padding: 0.75rem 1.5rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-search-btn:hover {
+    background: var(--primary-dark);
+    transform: scale(1.05);
+  }
+
+  .mobile-content-toggle {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .mobile-toggle-btn {
+    flex: 1;
+    padding: 0.75rem;
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .mobile-toggle-btn.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    transform: scale(1.05);
+  }
+}
+
+/* Enhanced Mobile Hero Section */
+@media (max-width: 768px) {
+  .main-content {
+    margin-top: 70px;
+  }
+
+  .hero {
+    padding: 2rem 1rem;
+    background-attachment: scroll;
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .hero-content {
+    order: 2;
+    max-width: 100%;
+  }
+
+  .hero-visual {
+    order: 1;
+    height: 300px;
+    margin-bottom: 1rem;
+  }
+
+  .hero-badge {
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    max-width: 280px;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    justify-content: center;
+  }
+
+  .floating-image-container {
+    animation: none;
+  }
+
+  .floating-image {
+    width: 200px;
+    height: 260px;
+    transform: rotate(0deg);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .floating-image:hover {
+    transform: scale(1.05);
+  }
+
+  .floating-particles {
+    display: none;
+  }
+
+  .image-glow {
+    display: none;
+  }
+}
+
+/* Mobile Grid Layouts */
+@media (max-width: 768px) {
+  .anime-section {
+    padding: 1.5rem 1rem;
+  }
+
+  .section-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.25rem;
+    text-align: center;
+    width: 100%;
+  }
+
+  .section-controls {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .anime-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .anime-card {
+    border-radius: 0.75rem;
+  }
+
+  .anime-card:hover {
+    transform: translateY(-2px);
+  }
+
+  .anime-poster {
+    height: 200px;
+  }
+
+  .anime-info {
+    padding: 0.75rem;
+  }
+
+  .anime-title {
+    font-size: 0.8rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+
+  .anime-meta {
+    font-size: 0.7rem;
+  }
+
+  /* Enhanced Trending Section for Mobile */
+  .trending-container {
+    padding: 1rem;
+    gap: 1rem;
+    min-height: 320px;
+  }
+
+  .trending-card {
+    min-width: 180px;
+    border-radius: 1rem;
+  }
+
+  .trending-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .trending-poster {
+    height: 200px;
+  }
+
+  .trending-info {
+    padding: 1rem;
+  }
+
+  .trending-title {
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .trending-rating {
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Ultra Small Mobile Devices */
+@media (max-width: 480px) {
+  .nav-container {
+    padding: 0 0.75rem;
+  }
+
+  .nav-logo {
+    font-size: 1.2rem;
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .nav-logo i {
+    font-size: 1.4rem;
+  }
+  
+  .mobile-menu-toggle {
+    padding: 0.6rem;
+  }
+  
+  .mobile-menu-toggle span {
+    width: 20px;
+    height: 2.5px;
+  }
+  
+  .nav-link {
+    font-size: 1.1rem;
+    padding: 1rem 1.5rem;
+    max-width: 260px;
+  }
+  
+  .main-content {
+    margin-top: 80px;
+  }
+
+  .hero {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-description {
+    font-size: 0.9rem;
+  }
+
+  .floating-image {
+    width: 160px;
+    height: 210px;
+  }
+
+  .anime-section {
+    padding: 1rem 0.75rem;
+  }
+
+  .anime-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .anime-poster {
+    height: 160px;
+  }
+
+  .anime-info {
+    padding: 0.5rem;
+  }
+
+  .anime-title {
+    font-size: 0.75rem;
+  }
+
+  .anime-meta {
+    font-size: 0.65rem;
+  }
+
+  .trending-container {
+    padding: 0.75rem;
+    gap: 0.75rem;
+    min-height: 280px;
+  }
+
+  .trending-card {
+    min-width: 150px;
+  }
+
+  .trending-poster {
+    height: 160px;
+  }
+
+  .trending-info {
+    padding: 0.75rem;
+  }
+
+  .trending-title {
+    font-size: 0.8rem;
+  }
+
+  .trending-rating {
+    font-size: 0.7rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+/* Mobile navbar enhancements */
+body.menu-open {
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-top: 85px;
+  }
+  
+  /* Add stagger animation to menu items */
+  .mobile-menu.active .nav-link {
+    animation: slideInUp 0.4s ease forwards;
+  }
+  
+  .mobile-menu.active .nav-link:nth-child(1) { animation-delay: 0.1s; }
+  .mobile-menu.active .nav-link:nth-child(2) { animation-delay: 0.15s; }
+  .mobile-menu.active .nav-link:nth-child(3) { animation-delay: 0.2s; }
+  .mobile-menu.active .nav-link:nth-child(4) { animation-delay: 0.25s; }
+  .mobile-menu.active .nav-link:nth-child(5) { animation-delay: 0.3s; }
+  .mobile-menu.active .nav-link:nth-child(6) { animation-delay: 0.35s; }
+  
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Mobile navbar bottom border animation */
+  .navbar::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+    opacity: 0.7;
+  }
+}
+
+/* Mobile Gallery Enhancements */
+@media (max-width: 768px) {
+  .gallery-container {
+    padding: 1rem;
+  }
+
+  .gallery-header h1 {
+    font-size: 2rem;
+  }
+
+  .gallery-controls {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: stretch;
+    padding: 1rem;
+  }
+
+  .gallery-controls-left {
+    min-width: auto;
+  }
+
+  .gallery-controls-right {
+    justify-content: center;
+  }
+
+  .gallery-subtitle {
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .category-tabs {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tab-btn {
+    flex: 1;
+    min-width: 100px;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .tab-btn span {
+    display: none;
+  }
+
+  .refresh-btn {
+    padding: 1rem 2rem;
+    font-size: 0.9rem;
+  }
+
+  .refresh-btn span {
+    display: inline;
+  }
+
+  /* Ultra small mobile */
+  @media (max-width: 480px) {
+    .gallery-controls {
+      padding: 0.75rem;
+      gap: 1rem;
+    }
+
+    .gallery-subtitle {
+      font-size: 0.9rem;
+    }
+
+    .category-tabs {
+      gap: 0.5rem;
+    }
+
+    .tab-btn {
+      padding: 0.6rem 0.8rem;
+      font-size: 0.8rem;
+      min-width: 80px;
+    }
+
+    .refresh-btn {
+      padding: 0.8rem 1.5rem;
+      font-size: 0.85rem;
+    }
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .gallery-card {
+    border-radius: 0.75rem;
+  }
+
+  .gallery-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .image-container {
+    aspect-ratio: 3/4;
+  }
+
+  .image-modal {
+    padding: 1rem;
+  }
+
+  .modal-content {
+    max-width: 95vw;
+    max-height: 95vh;
+  }
+
+  #modal-image {
+    max-height: 70vh;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  .modal-btn {
+    justify-content: center;
+    padding: 1rem;
+  }
+}
+
+/* Mobile Details Page */
+@media (max-width: 768px) {
+  .details-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .details-poster {
+    max-width: 250px;
+    margin: 0 auto;
+  }
+
+  .details-info {
+    padding: 1.5rem;
+  }
+
+  .details-title {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .details-meta {
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .details-meta span {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .details-genres {
+    text-align: center;
+  }
+
+  .genre-tag {
+    font-size: 0.7rem;
+    margin: 0.25rem;
+  }
+
+  .details-synopsis {
+    font-size: 0.9rem;
+    text-align: left;
+  }
+
+  .add-to-list-btn {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+/* Mobile Stats Page */
+@media (max-width: 768px) {
+  .stats-container {
+    padding: 1rem;
+  }
+
+  .stats-container h1 {
+    font-size: 2rem;
+  }
+
+  .stats-overview {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .stat-card {
+    padding: 1.5rem;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .charts-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .chart-card {
+    padding: 1rem;
+    height: 300px;
+  }
+
+  .chart-card h3 {
+    font-size: 1rem;
+  }
+}
+
+/* Mobile Map Page */
+@media (max-width: 768px) {
+  .map-container {
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+
+  .map-header h1 {
+    font-size: 2rem;
+  }
+
+  .map-header p {
+    font-size: 1rem;
+  }
+
+  .map-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    height: auto;
+  }
+
+  .locations-sidebar {
+    order: 2;
+    max-height: 400px;
+    padding: 1.5rem;
+  }
+
+  .map-display {
+    order: 1;
+    height: 350px;
+  }
+
+  .location-filters {
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .filter-btn {
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+    min-width: 100px;
+  }
+
+  .location-card {
+    margin-bottom: 1rem;
+  }
+
+  .location-image {
+    height: 120px;
+  }
+
+  .location-info {
+    padding: 1rem;
+  }
+
+  .location-info h3 {
+    font-size: 1rem;
+  }
+
+  .location-info p {
+    font-size: 0.85rem;
+  }
+}
+
+/* Mobile Search Results */
+@media (max-width: 768px) {
+  .search-section {
+    padding: 1.5rem 1rem;
+  }
+
+  .search-section h1 {
+    font-size: 2rem;
+  }
+
+  .search-container {
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 100%;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 2rem;
+  }
+
+  .search-btn {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border-radius: 2rem;
+  }
+
+  .results-section {
+    padding: 0 1rem 2rem;
+  }
+}
+
+/* Mobile My List */
+@media (max-width: 768px) {
+  .mylist-section {
+    padding: 1.5rem 1rem;
+  }
+
+  .mylist-section h1 {
+    font-size: 2rem;
+  }
+
+  .mylist-card .anime-info {
+    padding: 0.75rem;
+  }
+
+  .user-rating {
+    font-size: 0.7rem;
+  }
+
+  .rating-stars {
+    font-size: 1rem;
+  }
+
+  .remove-btn {
+    font-size: 0.7rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+/* Mobile Modal Enhancements */
+@media (max-width: 768px) {
+  .modal {
+    padding: 1rem;
+  }
+
+  .modal-content {
+    width: 95%;
+    max-width: 350px;
+    padding: 1.5rem;
+  }
+
+  .modal-content h3 {
+    font-size: 1.25rem;
+  }
+
+  .star-rating {
+    margin: 1rem 0;
+  }
+
+  .star {
+    font-size: 1.5rem;
+    margin: 0 0.1rem;
+  }
+
+  .modal-buttons {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .save-btn,
+  .cancel-btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+  }
+}
+
+/* Mobile Loading States */
+@media (max-width: 768px) {
+  .loading-spinner {
+    padding: 2rem;
+    font-size: 1rem;
+  }
+
+  .loading-spinner i {
+    font-size: 1.5rem;
+  }
+
+  .skeleton-card {
+    height: 240px;
+  }
+
+  .skeleton-poster {
+    width: 100%;
+    height: 200px;
+  }
+
+  .error-state {
+    padding: 2rem;
+    font-size: 0.9rem;
+  }
+
+  .error-state i {
+    font-size: 1.5rem;
+  }
+}
+
+/* Mobile Reader Page */
+@media (max-width: 768px) {
+  .reader-content {
+    height: calc(100vh - 70px);
+  }
+
+  .chapter-selector {
+    padding: 0.75rem;
+  }
+
+  .chapter-selector select {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+    width: 100%;
+  }
+
+  .manga-title {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .reader-navigation {
+    padding: 0.75rem;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .reader-controls {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: stretch;
+  }
+}
+
+/* Enhanced Touch Interactions */
+@media (hover: none) and (pointer: coarse) {
+  .anime-card,
+  .trending-card,
+  .gallery-card,
+  .location-card {
+    transition: transform 0.2s ease;
+  }
+
+  .anime-card:active,
+  .trending-card:active,
+  .gallery-card:active,
+  .location-card:active {
+    transform: scale(0.98);
+  }
+
+  .btn-primary:active,
+  .btn-secondary:active,
+  .nav-btn:active,
+  .tab-btn:active {
+    transform: scale(0.95);
+  }
+
+  /* Remove hover effects on touch devices */
+  .anime-card:hover,
+  .trending-card:hover,
+  .gallery-card:hover {
+    transform: none;
+    box-shadow: var(--shadow);
+  }
+}
+
+/* Accessibility Improvements for Mobile */
+@media (max-width: 768px) {
+  /* Larger touch targets */
+  .nav-link,
+  .btn-primary,
+  .btn-secondary,
+  .tab-btn,
+  .filter-btn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Better focus indicators */
+  .search-input:focus,
+  .mobile-search-input:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
+
+  /* Improved text readability */
+  .hero-title,
+  .section-title,
+  .details-title {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Dark mode adjustments for mobile */
+@media (max-width: 768px) and (prefers-color-scheme: dark) {
+  .mobile-menu {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  }
+
+  .mobile-search {
+    background: rgba(30, 41, 59, 0.95);
+    backdrop-filter: blur(20px);
+  }
+}
+
+/* Landscape orientation optimizations */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero {
+    padding: 1rem;
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr 300px;
+    gap: 2rem;
+    text-align: left;
+  }
+
+  .hero-content {
+    order: 1;
+  }
+
+  .hero-visual {
+    order: 2;
+    height: 250px;
+  }
+
+  .floating-image {
+    width: 150px;
+    height: 200px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-actions {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: auto;
+    max-width: none;
+  }
+}
+
+/* Print styles for mobile */
+@media print {
+  .navbar,
+  .mobile-menu,
+  .hero-actions,
+  .section-controls,
+  .gallery-controls,
+  .modal,
+  .floating-particles,
+  .image-glow {
+    display: none !important;
+  }
+
+  .main-content {
+    margin-top: 0;
+  }
+
+  .anime-grid,
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+}
